@@ -23,7 +23,7 @@ export class App implements OnInit {
   }
 
   private checkApiStatus() {
-    this.http.get('http://cn-dev.server96.com/api/health', {
+    this.http.get('https://cn-dev.server96.com/api/health', {
       responseType: 'text'
     }).subscribe({
       next: (response) => {
