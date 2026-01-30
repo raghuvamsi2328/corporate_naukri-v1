@@ -45,6 +45,10 @@ input[type="password"] {
   font-size: 1rem;
   margin-bottom: 0.25rem;
 }
+input.invalid {
+  border-color: #f44336;
+  background: #fff6f6;
+}
 .error {
   color: #f44336;
   font-size: 0.9rem;

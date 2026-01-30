@@ -1,36 +1,36 @@
 <div class="auth-container">
   <div class="tabs">
-    <button [class.active]="activeTab === 'login'" (click)="activeTab = 'login'">Login</button>
-    <button [class.active]="activeTab === 'signin'" (click)="activeTab = 'signin'">Sign In</button>
+    <button [class.active]="activeTab === 'login'" (click)="switchTab('login')">Login</button>
+    <button [class.active]="activeTab === 'signin'" (click)="switchTab('signin')">Sign In</button>
   </div>
   <div class="tab-content">
-    <form *ngIf="activeTab === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm">
+    <form *ngIf="activeTab === 'login'" (ngSubmit)="onLogin()" #loginForm="ngForm" autocomplete="off">
       <div class="form-group">
-        <label>Email ID</label>
-        <input type="email" name="loginEmail" [(ngModel)]="loginEmail" required email (ngModelChange)="validateLoginEmail()">
+        <label for="loginEmail">Email ID</label>
+        <input id="loginEmail" type="email" name="loginEmail" [(ngModel)]="loginEmail" required email (ngModelChange)="validateLoginEmail()" [class.invalid]="loginEmailTouched && !loginEmailValid" placeholder="Enter your email">
         <div class="error" *ngIf="loginEmailTouched && !loginEmailValid">Enter a valid email.</div>
       </div>
       <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="loginPassword" [(ngModel)]="loginPassword" required minlength="7" (ngModelChange)="validateLoginPassword()">
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" type="password" name="loginPassword" [(ngModel)]="loginPassword" required minlength="7" (ngModelChange)="validateLoginPassword()" [class.invalid]="loginPasswordTouched && !loginPasswordValid" placeholder="Enter your password">
         <div class="error" *ngIf="loginPasswordTouched && !loginPasswordValid">Password must be at least 7 characters.</div>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!canLogin()">Login</button>
     </form>
-    <form *ngIf="activeTab === 'signin'" (ngSubmit)="onSignIn()" #signInForm="ngForm">
+    <form *ngIf="activeTab === 'signin'" (ngSubmit)="onSignIn()" #signInForm="ngForm" autocomplete="off">
       <div class="form-group">
-        <label>Email ID</label>
-        <input type="email" name="signInEmail" [(ngModel)]="signInEmail" required email (ngModelChange)="validateSignInEmail()">
+        <label for="signInEmail">Email ID</label>
+        <input id="signInEmail" type="email" name="signInEmail" [(ngModel)]="signInEmail" required email (ngModelChange)="validateSignInEmail()" [class.invalid]="signInEmailTouched && !signInEmailValid" placeholder="Enter your email">
         <div class="error" *ngIf="signInEmailTouched && !signInEmailValid">Enter a valid email.</div>
       </div>
       <div class="form-group">
-        <label>Password</label>
-        <input type="password" name="signInPassword" [(ngModel)]="signInPassword" required minlength="7" (ngModelChange)="validateSignInPassword()">
+        <label for="signInPassword">Password</label>
+        <input id="signInPassword" type="password" name="signInPassword" [(ngModel)]="signInPassword" required minlength="7" (ngModelChange)="validateSignInPassword()" [class.invalid]="signInPasswordTouched && !signInPasswordValid" placeholder="Create a password">
         <div class="error" *ngIf="signInPasswordTouched && !signInPasswordValid">Password must be at least 7 characters.</div>
       </div>
       <div class="form-group">
-        <label>Confirm Password</label>
-        <input type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required minlength="7" (ngModelChange)="validateConfirmPassword()">
+        <label for="confirmPassword">Confirm Password</label>
+        <input id="confirmPassword" type="password" name="confirmPassword" [(ngModel)]="confirmPassword" required minlength="7" (ngModelChange)="validateConfirmPassword()" [class.invalid]="confirmPasswordTouched && !confirmPasswordValid" placeholder="Re-enter your password">
         <div class="error" *ngIf="confirmPasswordTouched && !confirmPasswordValid">Passwords must match and be at least 7 characters.</div>
       </div>
       <button class="btn btn-primary" type="submit" [disabled]="!canSignIn()">Sign In</button>
