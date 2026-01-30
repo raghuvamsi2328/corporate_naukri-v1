@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 interface Education {
@@ -12,7 +13,7 @@ interface Education {
 @Component({
   selector: 'app-education',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.scss']
 })

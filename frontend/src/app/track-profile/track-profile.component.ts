@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-track-profile',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './track-profile.component.html',
   styleUrls: ['./track-profile.component.scss']
 })

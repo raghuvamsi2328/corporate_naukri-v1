@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resume-upload',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './resume-upload.component.html',
   styleUrls: ['./resume-upload.component.scss']
 })
