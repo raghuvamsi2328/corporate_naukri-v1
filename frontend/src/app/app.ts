@@ -1,39 +1,29 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { RouterOutlet, RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './shared/header.component';
+import { FooterComponent } from './shared/footer.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, CommonModule, HttpClientModule],
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, CommonModule, HttpClientModule],
+  template: `
+    <app-header [showBack]="showBackButton()" [title]="getTitle()"></app-header>
+    <main style="min-height:80vh;">
+      <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  `,
   styleUrl: './app.scss'
 })
-export class App implements OnInit {
-  protected readonly title = signal('Corporate Naukri');
-  protected apiStatus = signal<'checking' | 'online' | 'offline'>('checking');
-  protected apiMessage = signal('');
-
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.checkApiStatus();
-    // Check API status every 30 seconds
-    setInterval(() => this.checkApiStatus(), 30000);
+export class App {
+  showBackButton() {
+    return window.location.pathname !== '/auth';
   }
-
-  private checkApiStatus() {
-    this.http.get('https://cn-dev.server96.com/api/health', {
-      responseType: 'text'
-    }).subscribe({
-      next: (response) => {
-        this.apiStatus.set('online');
-        this.apiMessage.set(response);
-      },
-      error: () => {
-        this.apiStatus.set('offline');
-        this.apiMessage.set('API is currently unavailable');
-      }
-    });
+  getTitle() {
+    // You can enhance this to return dynamic titles based on route
+    return 'Corporate Naukri';
   }
 }
