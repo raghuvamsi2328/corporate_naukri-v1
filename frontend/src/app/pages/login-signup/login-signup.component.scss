@@ -1,5 +1,61 @@
 @import 'src/theme';
 
+body, html {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #e3f0ff 0%, #f8fbff 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.login-signup-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, #e3f0ff 0%, #f8fbff 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.login-signup-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+
+.input-icon-group {
+  position: relative;
+}
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 65%;
+  transform: translateY(-50%);
+  color: #bfc6d1;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+.input-icon-right {
+  position: absolute;
+  right: 1rem;
+  top: 65%;
+  transform: translateY(-50%);
+  color: #bbb;
+  font-size: 1.1rem;
+  pointer-events: auto;
+}
+.input-icon-group input {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .login-signup-container {
   max-width: 420px;
   margin: 3rem auto;
@@ -127,10 +183,275 @@ input.ng-invalid.ng-touched {
   box-shadow: none;
 }
 
+.login-signup-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  max-width: 370px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-signup-card h2 {
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+.login-signup-card .subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-signup-card .form-group {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+.login-signup-card label {
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: #1976d2;
+  font-weight: 600;
+}
+.login-signup-card .input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #f3f6fa;
+  border-radius: 12px;
+  border: 1.5px solid #e3eaf3;
+  margin-bottom: 0.7rem;
+}
+.login-signup-card .input-wrapper input {
+  border: none;
+  background: transparent;
+  padding: 1rem 2.5rem 1rem 2.5rem;
+  font-size: 1.05rem;
+  width: 100%;
+  outline: none;
+  border-radius: 12px;
+}
+.login-signup-card .input-wrapper .input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #b0b8c1;
+  font-size: 1.2rem;
+}
+.login-signup-card .input-wrapper .input-eye {
+  position: absolute;
+  right: 1rem;
+  color: #b0b8c1;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.login-signup-card .forgot {
+  text-align: right;
+  font-size: 0.97rem;
+  margin-bottom: 0.7rem;
+  color: #232328;
+  cursor: pointer;
+  font-weight: 400;
+  margin-top: -0.5rem;
+}
+.login-signup-card .cta-btn {
+  background: linear-gradient(180deg, #232328 0%, #232328 100%);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  padding: 1.1rem 0;
+  font-size: 1.18rem;
+  font-weight: 500;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  letter-spacing: 0.2px;
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.login-signup-card .cta-btn:disabled {
+  background: #c7e0fa;
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-signup-card .or-divider {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.97rem;
+  margin: 1.2rem 0 0.7rem 0;
+  position: relative;
+}
+.login-signup-card .or-divider:before, .login-signup-card .or-divider:after {
+  content: '';
+  display: inline-block;
+  width: 30%;
+  height: 1px;
+  background: #e3f0ff;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}
+.login-signup-card .social-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+}
+.login-signup-card .social-btn {
+  flex: 1;
+  background: #fff;
+  border: 1.5px solid #e3f0ff;
+  border-radius: 12px;
+  padding: 0.6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.login-signup-card .social-btn:hover {
+  background: #f3f8fd;
+  border-color: #90caf9;
+}
+
+// Center the card in the container
+.login-signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.login-signup-card {
+  margin: 0 auto;
+  background: rgba(255,255,255,0.97);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  max-width: 370px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
 // Responsive
 @media (max-width: 600px) {
   .login-signup-container {
     padding: 1.2rem 0.5rem 2rem 0.5rem;
     max-width: 98vw;
   }
+  .login-signup-card {
+    padding: 1.2rem 0.5rem 2rem 0.5rem;
+    max-width: 98vw;
+  }
+}
+
+.input-icon-group {
+  position: relative;
+  margin-bottom: 1.3rem;
+}
+.input-icon-group input {
+  padding-left: 2.7rem !important;
+  padding-right: 2.7rem !important;
+  width: 100%;
+  box-sizing: border-box;
+  height: 3.1rem;
+  line-height: 3.1rem;
+  display: block;
+  background: #f6f7fa;
+  border: 1.5px solid #c7e0fa;
+  border-radius: 12px;
+  font-size: 1.08rem;
+  color: #232328;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.input-icon,
+.input-icon-right {
+  top: 65%;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+}
+.input-icon {
+  left: 1rem;
+  color: #bfc6d1;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+.input-icon-right {
+  right: 1rem;
+  color: #bbb;
+  font-size: 1.1rem;
+  pointer-events: auto;
+}
+.input-icon-group label {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #1976d2;
+  margin-bottom: 0.2rem;
+  margin-left: 0.2rem;
+}
+.input-icon-group input::placeholder {
+  color: #999;
+  font-weight: 400;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+// Password input with icons (lock left, eye right)
+.input-icon-group.password-group {
+  position: relative;
+}
+.input-icon-group.password-group input {
+  padding-left: 2.7rem !important;
+  padding-right: 2.7rem !important;
+}
+.input-icon-group.password-group .input-icon {
+  left: 1.1rem;
+  right: auto;
+  top: 62%;
+  transform: translateY(-50%);
+  color: #bfc6d1;
+  font-size: 1.25rem;
+  pointer-events: none;
+  z-index: 2;
+}
+.input-icon-group.password-group .input-icon-right {
+  right: 1.1rem;
+  left: auto;
+  top: 65%;
+  transform: translateY(-50%);
+  color: #bfc6d1;
+  font-size: 1.25rem;
+  pointer-events: auto;
+  z-index: 2;
+  height: 2rem;
+  display: flex;
+  align-items: center;
 }
