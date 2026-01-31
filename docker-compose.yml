@@ -23,7 +23,9 @@ services:
       - db
 
   frontend:
-    build: ./frontend
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
     image: corporate-naukri-frontend:local
     restart: always
     ports:
