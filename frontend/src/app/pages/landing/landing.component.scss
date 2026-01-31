@@ -1,0 +1,56 @@
+@import 'src/theme';
+
+.landing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  padding: 2rem;
+  background: $background-color;
+}
+
+.landing-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeInLeft 1s ease;
+}
+
+.landing-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 1.2rem;
+}
+
+.landing-stats {
+  font-size: 1.1rem;
+  color: $primary-color-dark;
+  margin-bottom: 2rem;
+}
+
+.landing-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 1s ease;
+}
+
+.landing-image {
+  max-width: 350px;
+  width: 100%;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
