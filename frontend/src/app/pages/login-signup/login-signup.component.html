@@ -1,1 +1,64 @@
-<p>login-signup works!</p>
+<div class="login-signup-bg"></div>
+<div class="login-signup-center">
+    <div class="login-signup-card">
+        <div class="icon-box">
+            <span style="font-size:2rem;">&#x1F511;</span>
+        </div>
+        <h2>Sign in with email</h2>
+        <div class="subtitle">
+            Make a new doc to bring your words, data, and teams together. For free
+        </div>
+        <form (ngSubmit)="onLogin()" #loginForm="ngForm" autocomplete="off" *ngIf="activeTab === 'login'">
+            <div class="form-group input-icon-group">
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" name="loginEmail" type="email" [(ngModel)]="loginEmail" required email
+                    #loginEmailCtrl="ngModel" (ngModelChange)="validateLoginEmail()"
+                    [ngClass]="{'ng-invalid': loginEmailError, 'ng-touched': loginEmailTouched}"
+                    (blur)="loginEmailTouched = true" placeholder="Email">
+                <i class="bi bi-envelope input-icon"></i>
+                <div class="error-message" *ngIf="loginEmailError">Enter a valid email.</div>
+            </div>
+            <div class="form-group input-icon-group password-group">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" name="loginPassword" type="password" [(ngModel)]="loginPassword" required
+                    minlength="7" #loginPasswordCtrl="ngModel" (ngModelChange)="validateLoginPassword()"
+                    [ngClass]="{'ng-invalid': loginPasswordError, 'ng-touched': loginPasswordTouched}"
+                    (blur)="loginPasswordTouched = true" placeholder="Password">
+                <i class="bi bi-lock input-icon"></i>
+                <span class="input-icon-right" style="cursor:pointer;">
+                    <i class="fa fa-eye-slash"></i>
+                </span>
+                <div class="error-message" *ngIf="loginPasswordError">Password must be at least 7 characters.</div>
+            </div>
+            <div class="forgot">Forgot password?</div>
+            <button class="cta-btn" type="submit"
+                [disabled]="!loginForm.valid || loginEmailError || loginPasswordError">Get Started</button>
+        </form>
+        <button class="cta-btn" style="margin-top: 1.2rem; background: #f3f6fa; color: #232328; font-weight: 600;" (click)="activeTab = 'signup'">Sign up</button>
+        <form (ngSubmit)="onSignup()" #signupForm="ngForm" autocomplete="off" *ngIf="activeTab === 'signup'">
+            <!-- Signup form fields here -->
+            <div class="form-group input-icon-group">
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" name="signupEmail" type="email" [(ngModel)]="signupEmail" required email
+                    #signupEmailCtrl="ngModel" [ngClass]="{'ng-invalid': signupEmailError, 'ng-touched': signupEmailTouched}"
+                    (blur)="signupEmailTouched = true" placeholder="Email">
+                <i class="bi bi-envelope input-icon"></i>
+                <div class="error-message" *ngIf="signupEmailError">Enter a valid email.</div>
+            </div>
+            <div class="form-group input-icon-group password-group">
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" name="signupPassword" type="password" [(ngModel)]="signupPassword" required
+                    minlength="7" #signupPasswordCtrl="ngModel" [ngClass]="{'ng-invalid': signupPasswordError, 'ng-touched': signupPasswordTouched}"
+                    (blur)="signupPasswordTouched = true" placeholder="Password">
+                <i class="bi bi-lock input-icon"></i>
+                <span class="input-icon-right" style="cursor:pointer;">
+                    <i class="fa fa-eye-slash"></i>
+                </span>
+                <div class="error-message" *ngIf="signupPasswordError">Password must be at least 7 characters.</div>
+            </div>
+            <button class="cta-btn" type="submit"
+                [disabled]="!signupForm.valid || signupEmailError || signupPasswordError">Sign Up</button>
+            <button class="cta-btn" style="margin-top: 1.2rem; background: #f3f6fa; color: #232328; font-weight: 600;" (click)="activeTab = 'login'; $event.preventDefault();">Back to Login</button>
+        </form>
+    </div>
+</div>
