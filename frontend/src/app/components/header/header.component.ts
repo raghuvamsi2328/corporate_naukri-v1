@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +7,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  isLoggedIn = false; // Replace with real auth logic
+  isLoggedIn = true; // Replace with real auth logic
   menuOpen = false;
+  showLoginButton = false;
+  showProfileIcon = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        const url = event.urlAfterRedirects;
+        this.showLoginButton = url === '/' || url === '/landing';
+        this.showProfileIcon = !this.showLoginButton && url !== '/login' && url !== '/login-signup';
+      }
+    });
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

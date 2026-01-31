@@ -1,0 +1,78 @@
+@import 'src/theme';
+
+.dashboard-benefits {
+  max-width: 540px;
+  margin: 2.5rem auto 1.5rem auto;
+  background: linear-gradient(120deg, $primary-color-light 0%, $primary-color 100%);
+  color: $primary-color-dark;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,119,182,0.10);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+.benefits-title {
+  color: $primary-color-dark;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  letter-spacing: 0.5px;
+}
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+}
+.benefits-list li {
+  font-size: 1.12rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.benefit-icon {
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+}
+.steps-section {
+  margin-top: 1.2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px rgba(0,119,182,0.06);
+  padding: 1.1rem 1.2rem 1.1rem 1.2rem;
+}
+.steps-section h3 {
+  color: $primary-color;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.steps-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: $primary-color-dark;
+  font-size: 1.05rem;
+}
+.steps-list li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.proceed-btn {
+  display: block;
+  margin: 2rem auto 0 auto;
+  background: linear-gradient(90deg, $primary-color 60%, $primary-color-light 100%);
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius * 2;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.proceed-btn:hover {
+  background: $primary-color-dark;
+}
