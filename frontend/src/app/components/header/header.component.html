@@ -1,0 +1,20 @@
+<header class="header-container">
+  <div class="header-left">
+    <img src="assets/cp-logo.svg" alt="Logo" class="logo" />
+    <span class="title">Corporate Naukri</span>
+  </div>
+  <div class="header-right">
+    <ng-container *ngIf="isLoggedIn; else loginBlock">
+      <div class="profile-menu" (click)="toggleMenu()">
+        <img src="assets/profile-icon.svg" alt="Profile" class="profile-icon" />
+        <div class="dropdown" *ngIf="menuOpen">
+          <button (click)="logout()">Logout</button>
+          <button (click)="updateProfile()">Update Profile</button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #loginBlock>
+      <button class="login-btn" (click)="login()">Login / Sign In</button>
+    </ng-template>
+  </div>
+</header>

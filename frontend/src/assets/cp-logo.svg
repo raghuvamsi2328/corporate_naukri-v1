@@ -1,0 +1,5 @@
+<svg id="cn-logo" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <circle id="cn-bg" cx="60" cy="60" r="50" fill="#1976d2" />
+  <text x="32" y="80" font-family="Arial, Helvetica, sans-serif" font-size="48" fill="#fff" font-weight="bold">C</text>
+  <text x="68" y="80" font-family="Arial, Helvetica, sans-serif" font-size="48" fill="#fff" font-weight="bold">N</text>
+</svg>

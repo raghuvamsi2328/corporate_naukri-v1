@@ -1,0 +1,36 @@
+@import 'src/theme';
+
+.footer-container {
+  width: 100%;
+  background: $primary-color;
+  color: $text-color;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $box-shadow;
+  position: relative;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  font-size: $font-size-base;
+}
+
+.footer-separator {
+  margin: 0 0.5rem;
+  color: $primary-color-light;
+}
+
+.footer-container a {
+  color: $text-color;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer-container a:hover {
+  color: $primary-color-light;
+}
