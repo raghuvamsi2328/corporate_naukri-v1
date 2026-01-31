@@ -1,0 +1,136 @@
+@import 'src/theme';
+
+.login-signup-container {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 119, 182, 0.10), 0 1.5px 6px rgba(0,0,0,0.04);
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-signup-container::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, $primary-color 60%, $primary-color-light 100%);
+  opacity: 0.13;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 2.2rem;
+  border-bottom: 2px solid $primary-color-light;
+  z-index: 1;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 0.9rem 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $primary-color-dark;
+  background: transparent;
+  border: none;
+  border-bottom: 2.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s, color 0.3s, background 0.2s;
+  border-radius: 12px 12px 0 0;
+}
+.tab.active {
+  color: $primary-color;
+  background: #f3f8fd;
+  border-bottom: 2.5px solid $primary-color;
+}
+
+.tab-content {
+  animation: fadeInTab 0.4s;
+  z-index: 1;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: $primary-color-dark;
+  font-weight: 600;
+}
+
+input {
+  padding: 0.7rem;
+  border: 1.5px solid $primary-color-light;
+  border-radius: $border-radius * 2;
+  font-size: 1.05rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #f8fbff;
+}
+input:focus {
+  border-color: $primary-color;
+  box-shadow: 0 0 0 2px rgba(0,119,182,0.08);
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #e53935;
+  background: #fff0f0;
+}
+
+.error-message {
+  color: #e53935;
+  font-size: 0.97rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.cta-btn {
+  background: linear-gradient(90deg, $primary-color 60%, $primary-color-light 100%);
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius * 2;
+  padding: 0.8rem 0;
+  font-size: 1.13rem;
+  font-weight: 700;
+  margin-top: 0.7rem;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,119,182,0.08);
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+.cta-btn:disabled {
+  background: $primary-color-light;
+  color: #eee;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .login-signup-container {
+    padding: 1.2rem 0.5rem 2rem 0.5rem;
+    max-width: 98vw;
+  }
+}

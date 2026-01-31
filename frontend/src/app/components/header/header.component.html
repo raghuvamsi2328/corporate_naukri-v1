@@ -4,7 +4,10 @@
     <span class="title">Corporate Naukri</span>
   </div>
   <div class="header-right">
-    <ng-container *ngIf="isLoggedIn; else loginBlock">
+    <ng-container *ngIf="showLoginButton">
+      <button class="login-btn" (click)="login()">Login / Sign In</button>
+    </ng-container>
+    <ng-container *ngIf="showProfileIcon && isLoggedIn">
       <div class="profile-menu" (click)="toggleMenu()">
         <img src="assets/profile-icon.svg" alt="Profile" class="profile-icon" />
         <div class="dropdown" *ngIf="menuOpen">
@@ -13,8 +16,5 @@
         </div>
       </div>
     </ng-container>
-    <ng-template #loginBlock>
-      <button class="login-btn" (click)="login()">Login / Sign In</button>
-    </ng-template>
   </div>
 </header>
