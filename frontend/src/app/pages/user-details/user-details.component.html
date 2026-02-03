@@ -1,1 +1,130 @@
-<p>user-details works!</p>
+<div class="routing-wrapper">
+  
+  <div class="stepper">
+    <div class="step" [class.active]="currentStep >= 1">1</div>
+    <div class="divider"></div>
+    <div class="step" [class.active]="currentStep >= 2">2</div>
+    <div class="divider"></div>
+    <div class="step" [class.active]="currentStep >= 3">3</div>
+    <div class="divider"></div>
+    <div class="step" [class.active]="currentStep >= 4">4</div>
+  </div>
+
+  <div class="form-card animate-fade" *ngIf="currentStep === 1">
+    <div class="form-header"><h2>Personal Details</h2></div>
+    <div class="form-content">
+      <div class="input-grid">
+        <div class="full"><label>Full Name</label><input type="text" [(ngModel)]="userData.fullName"></div>
+        <div class="half"><label>Age</label><input type="number" [(ngModel)]="userData.age"></div>
+        <div class="half">
+          <label>Gender</label>
+          <div class="radio-box">
+            <label><input type="radio" name="gender" [(ngModel)]="userData.gender" value="Men"> Men</label>
+            <label><input type="radio" name="gender" [(ngModel)]="userData.gender" value="Women"> Women</label>
+          </div>
+        </div>
+        <div class="full"><label>Phone Number</label><input type="number" [(ngModel)]="userData.phone"></div>
+        <div class="full"><label>Address</label><input type="text" [(ngModel)]="userData.address"></div>
+        <div class="full"><label>Hometown</label><input type="text" [(ngModel)]="userData.hometown"></div>
+      </div>
+      <div class="nav-footer">
+        <button class="btn-prev" disabled>Previous</button>
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card wide animate-fade" *ngIf="currentStep === 2">
+    <div class="form-header"><h2>Education Details</h2></div>
+    <div class="form-content">
+      <table class="edu-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Institution Name</th>
+            <th>Subject</th>
+            <th>Year</th>
+            <th style="width: 120px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of educationRows; let i = index">
+            <td>
+              <select [(ngModel)]="row.category">
+                <option value="" disabled>Select</option>
+                <option value="10th">10th</option>
+                <option value="Inter">Inter</option>
+                <option value="B.tech">B.tech</option>
+                <option value="Diploma">Diploma</option>
+              </select>
+            </td>
+            <td><input type="text" [(ngModel)]="row.institution" [disabled]="!row.category" placeholder="School/College"></td>
+            <td><input type="text" [(ngModel)]="row.subject" [disabled]="!row.category" placeholder="Major"></td>
+            <td><input type="number" [(ngModel)]="row.year" [disabled]="!row.category" placeholder="YYYY"></td>
+            <td>
+              <div class="action-btns">
+                <button class="btn-delete" *ngIf="educationRows.length > 1" (click)="removeRow(i)" title="Remove">✕</button>
+                <button class="btn-add-inline" *ngIf="i === educationRows.length - 1 && educationRows.length < 3" (click)="addRow()">+ Add</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="nav-footer">
+        <button class="btn-prev" (click)="prevStep()">Previous</button>
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card animate-fade" *ngIf="currentStep === 3">
+    <div class="form-header"><h2>Professional Details</h2></div>
+    <div class="form-content">
+      <label>Are you Experienced or a Fresher?</label>
+      <div class="toggle-group">
+        <label class="toggle-card" [class.selected]="professional.category === 'Experienced'">
+          <input type="radio" name="cat" [(ngModel)]="professional.category" value="Experienced"> Experienced
+        </label>
+        <label class="toggle-card" [class.selected]="professional.category === 'Fresher'">
+          <input type="radio" name="cat" [(ngModel)]="professional.category" value="Fresher"> Fresher
+        </label>
+      </div>
+
+      <div class="experience-div" *ngIf="professional.category === 'Experienced'">
+        <div class="input-grid">
+          <div class="half"><label>Current Company</label><input type="text" [(ngModel)]="professional.company"></div>
+          <div class="half"><label>Current Industry</label><input type="text" [(ngModel)]="professional.industry"></div>
+          <div class="half"><label>Role Category</label><input type="text" [(ngModel)]="professional.roleCategory"></div>
+          <div class="half"><label>Job Role</label><input type="text" [(ngModel)]="professional.jobRole"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <label>Key Skills</label>
+        <textarea [(ngModel)]="professional.keySkills" placeholder="List your professional skills..."></textarea>
+      </div>
+
+      <div class="nav-footer">
+        <button class="btn-prev" (click)="prevStep()">Previous</button>
+        <button class="btn-next" (click)="nextStep()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card animate-fade" *ngIf="currentStep === 4">
+    <div class="form-header"><h2>Resume Upload</h2></div>
+    <div class="form-content">
+      <div class="upload-zone">
+        <span style="font-size: 50px;">📄</span>
+        <h3>Upload your resume</h3>
+        <p>Upload your resume to Start your hiring</p>
+        <input type="file" (change)="onFileSelected($event)" style="margin-top: 10px;">
+      </div>
+      <div class="nav-footer">
+        <button class="btn-prev" (click)="prevStep()">Previous</button>
+        <button class="btn-pay" (click)="onSubmit()">Continue to Payment</button>
+      </div>
+    </div>
+  </div>
+
+</div>
