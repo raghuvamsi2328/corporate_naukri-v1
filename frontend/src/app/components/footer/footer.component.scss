@@ -1,36 +1,35 @@
-@import 'src/theme';
+.main-footer {
+  background-color: darken(#1a2b3c, 5%);
+  color: #a0a0a0;
+  padding: 4rem 0 2rem;
 
-.footer-container {
-  width: 100%;
-  background: $primary-color;
-  color: $text-color;
-  padding: 1rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: $box-shadow;
-  position: relative;
-  bottom: 0;
-}
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem;
-  font-size: $font-size-base;
-}
+  .footer-brand {
+    flex: 1;
+    .logo { color: white; font-weight: bold; margin-bottom: 1rem; }
+  }
 
-.footer-separator {
-  margin: 0 0.5rem;
-  color: $primary-color-light;
-}
+  .footer-links {
+    display: flex;
+    gap: 4rem;
+    flex: 2;
+    justify-content: flex-end;
 
-.footer-container a {
-  color: $text-color;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-.footer-container a:hover {
-  color: $primary-color-light;
+    h5 { color: white; margin-bottom: 1.2rem; }
+    a { display: block; text-decoration: none; color: inherit; margin-bottom: 0.5rem; }
+  }
+
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    font-size: 0.8rem;
+  }
 }
