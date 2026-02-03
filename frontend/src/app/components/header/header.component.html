@@ -1,20 +1,12 @@
-<header class="header-container">
-  <div class="header-left">
-    <img src="assets/cp-logo.svg" alt="Logo" class="logo" />
-    <span class="title">Corporate Naukri</span>
-  </div>
-  <div class="header-right">
-    <ng-container *ngIf="showLoginButton">
-      <button class="login-btn" (click)="login()">Login / Sign In</button>
-    </ng-container>
-    <ng-container *ngIf="showProfileIcon && isLoggedIn">
-      <div class="profile-menu" (click)="toggleMenu()">
-        <img src="assets/profile-icon.svg" alt="Profile" class="profile-icon" />
-        <div class="dropdown" *ngIf="menuOpen">
-          <button (click)="logout()">Logout</button>
-          <button (click)="updateProfile()">Update Profile</button>
-        </div>
-      </div>
-    </ng-container>
-  </div>
+<header class="navbar">
+  <div class="logo">CAREER BRIDGE</div>
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#" class="logout-btn">Logout</a></li>
+    </ul>
+  </nav>
 </header>
