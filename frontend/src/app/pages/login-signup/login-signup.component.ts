@@ -28,7 +28,7 @@ export class LoginSignupComponent {
   signupPasswordTouched = false;
   signupConfirmPasswordTouched = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   switchTab(tab: 'login' | 'signup') {
     this.activeTab = tab;
@@ -61,5 +61,18 @@ export class LoginSignupComponent {
   onSignup() {
     // TODO: Implement signup logic
     alert('Signup successful!');
+  }
+
+  toggleAuth() {
+    const loginBox = document.getElementById('loginBox');
+    const signupBox = document.getElementById('signupBox');
+
+    if (loginBox?.classList.contains('hidden')) {
+      loginBox.classList.remove('hidden');
+      signupBox?.classList.add('hidden');
+    } else {
+      loginBox?.classList.add('hidden');
+      signupBox?.classList.remove('hidden');
+    }
   }
 }

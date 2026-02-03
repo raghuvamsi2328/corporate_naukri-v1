@@ -27,6 +27,8 @@ body {
     background-color: $bg-cream;
 
     .logo {
+      display: flex;
+      align-items: center;
         font-weight: 800;
         font-size: 1.2rem;
         letter-spacing: 1px;
