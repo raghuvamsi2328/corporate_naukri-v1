@@ -62,19 +62,19 @@
 
   <div class="stats-container animate-fade-in">
     <div class="stat-item">
-      <h4>10,000+</h4>
+      <h4><span data-stat="professionals">0</span>+</h4>
       <p>Professionals Placed</p>
     </div>
     <div class="stat-item">
-      <h4>500+</h4>
+      <h4><span data-stat="companies">0</span>+</h4>
       <p>Partner Companies</p>
     </div>
     <div class="stat-item">
-      <h4>95%</h4>
+      <h4><span data-stat="successRate">0</span>%</h4>
       <p>Success Rate</p>
     </div>
     <div class="stat-item">
-      <h4>4.8/5</h4>
+      <h4><span data-stat="rating">0</span>/5</h4>
       <p>Average Rating</p>
     </div>
   </div>
@@ -270,26 +270,124 @@
 </section>
 
 <section class="placements">
-  <h3 class="animate-fade-in">Recent Success Stories</h3>
+  <h2 class="animate-fade-in">Recent Success Stories</h2>
+  <p class="section-subtitle">See how we've helped professionals land their dream jobs</p>
   <div class="placement-grid">
-    <div class="job-card">
-      <div>
+    <div class="job-card animate-slide-up" style="--delay: 0.1s">
+      <div class="company-logo">💼</div>
+      <div class="job-info">
         <h4>Software Engineer</h4>
-        <p>at Google</p>
+        <p class="company">Google</p>
+        <p class="location">📍 Bangalore, India</p>
+        <div class="job-tags">
+          <span class="tag">Full-time</span>
+          <span class="tag">Remote</span>
+        </div>
       </div>
-      <a href="#">View Job →</a>
+      <div class="salary">₹25-30 LPA</div>
     </div>
-    <div class="job-card">
-      <div>
+    <div class="job-card animate-slide-up" style="--delay: 0.2s">
+      <div class="company-logo">🎯</div>
+      <div class="job-info">
         <h4>Marketing Manager</h4>
-        <p>at Amazon</p>
+        <p class="company">Amazon</p>
+        <p class="location">📍 Mumbai, India</p>
+        <div class="job-tags">
+          <span class="tag">Full-time</span>
+          <span class="tag">Hybrid</span>
+        </div>
       </div>
-      <a href="#">View Job →</a>
+      <div class="salary">₹20-25 LPA</div>
+    </div>
+    <div class="job-card animate-slide-up" style="--delay: 0.3s">
+      <div class="company-logo">⚡</div>
+      <div class="job-info">
+        <h4>Product Designer</h4>
+        <p class="company">Microsoft</p>
+        <p class="location">📍 Hyderabad, India</p>
+        <div class="job-tags">
+          <span class="tag">Full-time</span>
+          <span class="tag">On-site</span>
+        </div>
+      </div>
+      <div class="salary">₹22-28 LPA</div>
+    </div>
+    <div class="job-card animate-slide-up" style="--delay: 0.4s">
+      <div class="company-logo">🚀</div>
+      <div class="job-info">
+        <h4>Data Scientist</h4>
+        <p class="company">Flipkart</p>
+        <p class="location">📍 Bangalore, India</p>
+        <div class="job-tags">
+          <span class="tag">Full-time</span>
+          <span class="tag">Remote</span>
+        </div>
+      </div>
+      <div class="salary">₹24-30 LPA</div>
     </div>
   </div>
 </section>
 
-<footer class="footer-search">
-  <h3>Find Your Next Role</h3>
-  <p>Explore curated job openings and connect with top employers through Corporate Naukri.</p>
+<footer class="footer-main">
+  <div class="footer-content">
+    <div class="footer-section animate-slide-up" style="--delay: 0.1s">
+      <h3>Corporate Naukri</h3>
+      <p>Your trusted partner in career growth. Connecting talented professionals with leading companies across India.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">
+          <span>🔗</span>
+        </a>
+        <a href="#" class="social-link">
+          <span>📘</span>
+        </a>
+        <a href="#" class="social-link">
+          <span>🐦</span>
+        </a>
+        <a href="#" class="social-link">
+          <span>📷</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-section animate-slide-up" style="--delay: 0.2s">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a (click)="scrollToSection('home')">Home</a></li>
+        <li><a (click)="scrollToSection('about')">About Us</a></li>
+        <li><a (click)="scrollToSection('services')">Services</a></li>
+        <li><a (click)="scrollToSection('contact')">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section animate-slide-up" style="--delay: 0.3s">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Resume Building</a></li>
+        <li><a href="#">Profile Promotion</a></li>
+        <li><a href="#">Career Counseling</a></li>
+        <li><a href="#">Portfolio Creation</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section animate-slide-up" style="--delay: 0.4s">
+      <h4>Contact Info</h4>
+      <ul class="contact-info">
+        <li>📧 support@corporatenaukri.com</li>
+        <li>📞 +91 9876543210</li>
+        <li>📍 Bangalore, Karnataka</li>
+        <li>🕐 Mon-Fri: 9AM - 6PM</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Corporate Naukri. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <span>•</span>
+      <a href="#">Terms of Service</a>
+      <span>•</span>
+      <a href="#">Cookie Policy</a>
+    </div>
+  </div>
 </footer>

@@ -320,16 +320,16 @@ section {
 
 // About Us Section
 .about-section {
-    padding: 100px 5%;
+    padding: 60px 5%;
     background: linear-gradient(135deg, #f6f4e8 0%, #e8f0f6 100%);
 
     .about-header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
 
         h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             background: linear-gradient(135deg, $navy-dark 0%, $primary-blue 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -337,7 +337,7 @@ section {
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: $text-muted;
         }
     }
@@ -345,12 +345,12 @@ section {
     .about-content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 80px;
+        gap: 25px;
+        margin-bottom: 50px;
 
         .about-card {
             background: $white;
-            padding: 40px;
+            padding: 30px;
             border-radius: $border-radius;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -408,21 +408,21 @@ section {
 
 // Services Section
 .services-section {
-    padding: 100px 5%;
+    padding: 60px 5%;
     background: $bg-cream;
 
     .services-header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
 
         h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             color: $navy-dark;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: $text-muted;
         }
     }
@@ -430,12 +430,12 @@ section {
     .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
-        margin-bottom: 60px;
+        gap: 25px;
+        margin-bottom: 40px;
 
         .service-card {
             background: $white;
-            padding: 40px;
+            padding: 30px;
             border-radius: $border-radius;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -612,21 +612,21 @@ section {
 
 // Contact Section
 .contact-section {
-    padding: 100px 5%;
+    padding: 60px 5%;
     background: linear-gradient(135deg, #e8f0f6 0%, #f6f4e8 100%);
 
     .contact-header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
 
         h2 {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
             color: $navy-dark;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: $text-muted;
             max-width: 600px;
             margin: 0 auto;
@@ -791,6 +791,231 @@ section {
     }
 }
 
+// Success Stories / Placements Section
+.placements {
+    padding: 60px 5%;
+    background: $bg-cream;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: $navy-dark;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        color: $text-muted;
+        margin-bottom: 40px;
+    }
+
+    .placement-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .job-card {
+            background: $white;
+            border-radius: $border-radius;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            &:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            }
+
+            .company-logo {
+                font-size: 2.5rem;
+                width: 60px;
+                height: 60px;
+                background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(100, 181, 246, 0.1));
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .job-info {
+                flex: 1;
+
+                h4 {
+                    font-size: 1.3rem;
+                    margin-bottom: 5px;
+                    color: $navy-dark;
+                }
+
+                .company {
+                    font-size: 1rem;
+                    color: $primary-blue;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                }
+
+                .location {
+                    font-size: 0.9rem;
+                    color: $text-muted;
+                    margin-bottom: 12px;
+                }
+
+                .job-tags {
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+
+                    .tag {
+                        background: rgba(25, 118, 210, 0.1);
+                        color: $primary-blue;
+                        padding: 4px 12px;
+                        border-radius: 20px;
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .salary {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: $navy-dark;
+                padding: 10px 15px;
+                background: linear-gradient(135deg, rgba(25, 118, 210, 0.1), rgba(100, 181, 246, 0.15));
+                border-radius: 8px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// Footer
+.footer-main {
+    background: $navy-dark;
+    color: $white;
+    padding: 50px 5% 20px;
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 40px;
+        margin-bottom: 40px;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .footer-section {
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+                color: $white;
+            }
+
+            h4 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+                color: $light-blue;
+            }
+
+            p {
+                line-height: 1.7;
+                color: rgba(255, 255, 255, 0.8);
+                margin-bottom: 20px;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    margin-bottom: 12px;
+
+                    a {
+                        color: rgba(255, 255, 255, 0.8);
+                        text-decoration: none;
+                        transition: all 0.3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: $light-blue;
+                            padding-left: 5px;
+                        }
+                    }
+                }
+
+                &.contact-info li {
+                    color: rgba(255, 255, 255, 0.8);
+                    line-height: 2;
+                }
+            }
+
+            .social-links {
+                display: flex;
+                gap: 12px;
+                margin-top: 20px;
+
+                .social-link {
+                    width: 45px;
+                    height: 45px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-decoration: none;
+                    font-size: 1.5rem;
+                    transition: all 0.3s;
+
+                    &:hover {
+                        background: $primary-blue;
+                        transform: translateY(-5px);
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+
+            a {
+                color: rgba(255, 255, 255, 0.7);
+                text-decoration: none;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $light-blue;
+                }
+            }
+
+            span {
+                color: rgba(255, 255, 255, 0.3);
+            }
+        }
+    }
+}
+
 // Responsive Design
 // Responsive Design
 @media (max-width: 768px) {
@@ -859,5 +1084,19 @@ section {
     .services-section .services-header h2,
     .contact-section .contact-header h2 {
         font-size: 2rem;
+    }
+
+    .placements .placement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-main .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-main .footer-bottom {
+        flex-direction: column;
+        text-align: center;
     }
 }
