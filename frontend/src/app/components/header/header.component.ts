@@ -14,6 +14,7 @@ export class HeaderComponent {
   loading = false; // For animated button state
   activeSection = 'home';
   isDarkMode = false;
+  mobileMenuOpen = false;
 
   constructor(public router: Router) { // Make router public for template access
     // Check for saved dark mode preference
@@ -108,6 +109,10 @@ export class HeaderComponent {
     this.isDarkMode = !this.isDarkMode;
     localStorage.setItem('darkMode', this.isDarkMode.toString());
     this.applyDarkMode();
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
   }
 
   private applyDarkMode() {
