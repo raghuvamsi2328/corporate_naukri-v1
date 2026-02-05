@@ -3,31 +3,56 @@
     <img src="assets/icon.svg" alt="" class="logo-img">
     <div class="logo-text">CORPORATE NAUKRI</div>
   </div>
-  <nav>
+
+  <div class="header-actions">
+    <!-- Dark Mode Toggle (Always visible) -->
+    <button class="theme-toggle-header" (click)="toggleDarkMode()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+      <span class="theme-icon">{{ isDarkMode ? '☀️' : '🌙' }}</span>
+    </button>
+
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button class="hamburger-menu" (click)="mobileMenuOpen = !mobileMenuOpen" [class.open]="mobileMenuOpen" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-overlay" *ngIf="mobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+  <nav [class.mobile-open]="mobileMenuOpen">
+    <!-- Close button for mobile menu -->
+    <button class="mobile-close" (click)="closeMobileMenu()" aria-label="Close menu">
+      <span>×</span>
+    </button>
+    
     <ul>
-      <li><a (click)="scrollToSection('home')" [class.active]="activeSection === 'home'">Home</a></li>
-      <li><a (click)="scrollToSection('about')" [class.active]="activeSection === 'about'">About Us</a></li>
-      <li><a (click)="scrollToSection('services')" [class.active]="activeSection === 'services'">Services</a></li>
-      <li><a (click)="scrollToSection('contact')" [class.active]="activeSection === 'contact'">Contact</a></li>
-      <li>
+      <li><a (click)="scrollToSection('home'); closeMobileMenu()" [class.active]="activeSection === 'home'">Home</a></li>
+      <li><a (click)="scrollToSection('about'); closeMobileMenu()" [class.active]="activeSection === 'about'">About Us</a></li>
+      <li><a (click)="scrollToSection('services'); closeMobileMenu()" [class.active]="activeSection === 'services'">Services</a></li>
+      <li><a (click)="scrollToSection('contact'); closeMobileMenu()" [class.active]="activeSection === 'contact'">Contact</a></li>
+      
+      <!-- Mobile: Profile actions below Contact -->
+      <li class="mobile-only" *ngIf="isLoggedIn">
+        <a (click)="updateProfile(); closeMobileMenu()">👤 Update Profile</a>
+      </li>
+      <li class="mobile-only" *ngIf="isLoggedIn">
+        <a (click)="logout(); closeMobileMenu()">🚪 Logout</a>
+      </li>
+      
+      <!-- Desktop: Theme Toggle -->
+      <li class="desktop-only">
         <button class="theme-toggle" (click)="toggleDarkMode()" [title]="isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
           <span class="theme-icon">{{ isDarkMode ? '☀️' : '🌙' }}</span>
         </button>
       </li>
-      <li *ngIf="isLoggedIn">
-        <button class="profile-btn" (click)="menuOpen = !menuOpen">
-          <img src="assets/profile-icon.svg" alt="Profile" class="profile-icon">
-          <span class="profile-arrow" [class.open]="menuOpen">▼</span>
-        </button>
-        <ul class="profile-menu" *ngIf="menuOpen">
-          <li (click)="updateProfile()">Update Profile</li>
-          <li (click)="logout()">Logout</li>
-        </ul>
-      </li>
-      <li *ngIf="!isLoggedIn">
+      
+      <!-- Desktop: Login/Signup Button -->
+      <li class="desktop-only" *ngIf="!isLoggedIn">
         <button class="login-btn"
           [attr.data-state]="showLoginButton ? 'login' : (loading ? 'loading' : 'signup')"
-          (click)="login()">
+          (click)="login(); closeMobileMenu()">
           <span *ngIf="!loading">{{ showLoginButton ? 'Login / Signup' : 'Get Started' }}</span>
           <span *ngIf="loading">Loading...</span>
         </button>
