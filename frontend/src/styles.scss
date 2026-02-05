@@ -29,4 +29,332 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Dark Mode Styles - Modern Dark Theme
+body.dark-mode {
+  --bg-cream: #1e1e2e;
+  --navy-dark: #f0f0f0;
+  --white: #2a2a3e;
+  --text-muted: #a8a8b8;
+  background-color: #121218;
+  color: #e8e8f0;
+
+  // Header/Navbar in dark mode
+  .navbar {
+    background-color: #1a1a26 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4) !important;
+    border-bottom: 1px solid rgba(100, 181, 246, 0.1) !important;
+
+    .logo-text {
+      color: #64b5f6 !important;
+      text-shadow: 0 2px 10px rgba(100, 181, 246, 0.3) !important;
+    }
+
+    nav ul li a {
+      color: #e8e8f0 !important;
+
+      &.active {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3) !important;
+      }
+
+      &:hover {
+        background: rgba(100, 181, 246, 0.15) !important;
+        color: #64b5f6 !important;
+      }
+    }
+
+    .theme-toggle {
+      border-color: #64b5f6 !important;
+      
+      &:hover {
+        background: linear-gradient(135deg, #1976d2 0%, #64b5f6 100%) !important;
+        border-color: #64b5f6 !important;
+      }
+    }
+
+    .login-btn {
+      background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3) !important;
+    }
+  }
+
+  // Landing page sections
+  .hero {
+    background: linear-gradient(135deg, #121218 0%, #1a1a26 100%) !important;
+
+    .hero-content h1 {
+      color: #ffffff !important;
+      text-shadow: 0 2px 10px rgba(100, 181, 246, 0.2) !important;
+    }
+
+    .hero-content p {
+      color: #b8b8c8 !important;
+    }
+
+    .hero-form-card {
+      background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%) !important;
+      border: 1px solid rgba(100, 181, 246, 0.2) !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+
+      h3 {
+        color: #64b5f6 !important;
+      }
+
+      label {
+        color: #e8e8f0 !important;
+      }
+
+      input {
+        background: #1a1a26 !important;
+        color: #e8e8f0 !important;
+        border-color: rgba(100, 181, 246, 0.3) !important;
+
+        &:focus {
+          border-color: #64b5f6 !important;
+          box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.1) !important;
+        }
+
+        &::placeholder {
+          color: #6a6a7a !important;
+        }
+      }
+
+      .file-upload {
+        background: #1a1a26 !important;
+        border-color: rgba(100, 181, 246, 0.3) !important;
+        color: #e8e8f0 !important;
+      }
+
+      .btn-submit {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3) !important;
+      }
+    }
+
+    .btn-dark {
+      background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3) !important;
+    }
+
+    .btn-outline {
+      border-color: #64b5f6 !important;
+      color: #64b5f6 !important;
+
+      &:hover {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  .about-section,
+  .services-section,
+  .contact-section,
+  .placements {
+    background: linear-gradient(135deg, #121218 0%, #1a1a26 100%) !important;
+
+    h2 {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+    }
+
+    h3, h4 {
+      color: #e8e8f0 !important;
+    }
+
+    p {
+      color: #b8b8c8 !important;
+    }
+
+    .about-card,
+    .service-card,
+    .info-card,
+    .job-card,
+    .mini-service {
+      background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%) !important;
+      border: 1px solid rgba(100, 181, 246, 0.15) !important;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+
+      &:hover {
+        box-shadow: 0 15px 50px rgba(100, 181, 246, 0.2) !important;
+        border-color: rgba(100, 181, 246, 0.3) !important;
+      }
+
+      h3, h4 {
+        color: #64b5f6 !important;
+      }
+    }
+
+    .service-card.featured {
+      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+      border-color: rgba(100, 181, 246, 0.4) !important;
+
+      h3, p, li {
+        color: #ffffff !important;
+      }
+
+      .service-icon {
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+
+      .featured-badge {
+        background: #64b5f6 !important;
+      }
+    }
+
+    .stats-container {
+      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+      box-shadow: 0 10px 40px rgba(100, 181, 246, 0.3) !important;
+
+      h4 {
+        color: #ffffff !important;
+      }
+
+      p {
+        color: #e8e8f0 !important;
+      }
+    }
+
+    .contact-form-container {
+      background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%) !important;
+      border: 1px solid rgba(100, 181, 246, 0.2) !important;
+
+      input, select, textarea {
+        background: #1a1a26 !important;
+        color: #e8e8f0 !important;
+        border-color: rgba(100, 181, 246, 0.3) !important;
+
+        &:focus {
+          border-color: #64b5f6 !important;
+          box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.1) !important;
+        }
+
+        &::placeholder {
+          color: #6a6a7a !important;
+        }
+      }
+
+      .btn-submit-contact {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+        box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3) !important;
+      }
+    }
+
+    .social-links {
+      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+
+      h3 {
+        color: #ffffff !important;
+      }
+
+      .social-icon {
+        background: rgba(255, 255, 255, 0.15) !important;
+
+        &:hover {
+          background: rgba(100, 181, 246, 0.3) !important;
+        }
+      }
+    }
+
+    .service-btn, .mini-service {
+      border-color: rgba(100, 181, 246, 0.3) !important;
+
+      &:hover {
+        background: linear-gradient(90deg, #1976d2 0%, #64b5f6 100%) !important;
+        color: #ffffff !important;
+        border-color: #64b5f6 !important;
+      }
+    }
+
+    .service-btn.featured-btn {
+      background: #ffffff !important;
+      color: #1976d2 !important;
+
+      &:hover {
+        background: #64b5f6 !important;
+        color: #ffffff !important;
+      }
+    }
+
+    .job-card {
+      .company {
+        color: #64b5f6 !important;
+      }
+
+      .location {
+        color: #a8a8b8 !important;
+      }
+
+      .tag {
+        background: rgba(100, 181, 246, 0.2) !important;
+        color: #64b5f6 !important;
+      }
+
+      .salary {
+        background: linear-gradient(135deg, rgba(100, 181, 246, 0.2), rgba(25, 118, 210, 0.25)) !important;
+        color: #64b5f6 !important;
+      }
+    }
+  }
+
+  .how-it-works .section-bg-dark {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%) !important;
+
+    h2, p {
+      color: #ffffff !important;
+    }
+
+    .step-card {
+      background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%) !important;
+      border: 1px solid rgba(100, 181, 246, 0.2) !important;
+      color: #e8e8f0 !important;
+
+      h4 {
+        color: #64b5f6 !important;
+      }
+
+      p {
+        color: #b8b8c8 !important;
+      }
+    }
+
+    .btn-cta {
+      background: #ffffff !important;
+      color: #1976d2 !important;
+
+      &:hover {
+        background: #64b5f6 !important;
+        color: #ffffff !important;
+      }
+    }
+  }
+
+  // Footer
+  app-footer {
+    background: #1a1a26 !important;
+    border-top: 1px solid rgba(100, 181, 246, 0.1) !important;
+    color: #e8e8f0 !important;
+
+    h3, h4 {
+      color: #64b5f6 !important;
+    }
+
+    p, a {
+      color: #b8b8c8 !important;
+
+      &:hover {
+        color: #64b5f6 !important;
+      }
+    }
+  }
 }

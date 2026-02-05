@@ -29,13 +29,19 @@ body {
 }
 
 // Logo Animation
-.logo {
-  transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
-  box-shadow: 0 2px 8px rgba(10,25,47,0.04);
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-1deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-3px) rotate(1deg); }
 }
-.logo:hover {
-  transform: scale(1.08) rotate(-3deg);
-  box-shadow: 0 8px 32px rgba(10,25,47,0.13);
+
+.logo {
+  animation: logoFloat 4s ease-in-out infinite;
+  
+  .logo-img {
+    animation: logoFloat 3s ease-in-out infinite;
+  }
 }
 
 // Dynamic Button Animation
@@ -110,11 +116,6 @@ body {
         gap: 0.7rem;
         cursor: pointer;
         user-select: none;
-        transition: transform 0.18s cubic-bezier(.4, 2, .6, 1);
-
-        &:hover {
-            transform: scale(1.04) rotate(-2deg);
-        }
 
         .logo-img {
             height: 2.2rem;
@@ -164,6 +165,41 @@ body {
                     background: $navy-dark;
                     color: $white;
                     box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08);
+                }
+            }
+
+            .theme-toggle {
+                background: none;
+                border: 2px solid $navy-dark;
+                color: $navy-dark;
+                font-size: 1.2rem;
+                font-weight: 500;
+                padding: 6px 12px;
+                border-radius: 50%;
+                cursor: pointer;
+                outline: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                width: 40px;
+                height: 40px;
+
+                .theme-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    background: $navy-dark;
+                    transform: rotate(20deg) scale(1.1);
+                    box-shadow: 0 4px 12px rgba(10, 25, 47, 0.15);
+
+                    .theme-icon {
+                        transform: rotate(-20deg);
+                    }
                 }
             }
         }
