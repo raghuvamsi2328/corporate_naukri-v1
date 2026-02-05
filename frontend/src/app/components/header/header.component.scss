@@ -18,43 +18,238 @@ body {
     color: $navy-dark;
 }
 
+// Header Animation
+@keyframes navbarSlideIn {
+  from { opacity: 0; transform: translateY(-40px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.navbar {
+  animation: navbarSlideIn 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+// Logo Animation
+.logo {
+  transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+  box-shadow: 0 2px 8px rgba(10,25,47,0.04);
+}
+.logo:hover {
+  transform: scale(1.08) rotate(-3deg);
+  box-shadow: 0 8px 32px rgba(10,25,47,0.13);
+}
+
+// Dynamic Button Animation
+.login-btn, .profile-btn {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.login-btn::before, .profile-btn::before {
+  content: '';
+  position: absolute;
+  left: -60%;
+  top: 0;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(90deg, #0a192f 0%, #233554 100%);
+  opacity: 0.12;
+  transform: skewX(-18deg);
+  transition: left 0.4s cubic-bezier(.4,2,.6,1);
+  z-index: 0;
+}
+.login-btn:hover::before, .profile-btn:hover::before {
+  left: 0;
+}
+.login-btn span, .profile-btn span {
+  position: relative;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.login-btn {
+  animation: pulseBtn 1.2s infinite alternate cubic-bezier(.4,2,.6,1);
+}
+@keyframes pulseBtn {
+  from { box-shadow: 0 0 0 0 rgba(10,25,47,0.10); }
+  to { box-shadow: 0 0 0 8px rgba(10,25,47,0.04); }
+}
+
+// Dynamic Button Text Animation
+.login-btn {
+  transition: background 0.3s, color 0.3s, box-shadow 0.2s, transform 0.18s;
+}
+.login-btn[data-state="signup"] {
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+}
+.login-btn[data-state="login"] {
+  background: linear-gradient(90deg, #0a192f 60%, #233554 100%);
+  color: #fff;
+}
+.login-btn[data-state="loading"] {
+  background: #fff3;
+  color: #1976d2;
+  cursor: wait;
+}
+
 // Navbar
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
+    padding: 16px 4vw 12px 4vw;
     background-color: $bg-cream;
+    box-shadow: 0 2px 16px rgba(10, 25, 47, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: box-shadow 0.3s;
 
     .logo {
-      display: flex;
-      align-items: center;
-        font-weight: 800;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.18s cubic-bezier(.4, 2, .6, 1);
+
+        &:hover {
+            transform: scale(1.04) rotate(-2deg);
+        }
+
+        .logo-img {
+            height: 2.2rem;
+            width: 2.2rem;
+            margin-right: 0.2rem;
+            display: block;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: 1.5px;
+            color: $navy-dark;
+            text-shadow: 0 1px 0 #fff, 0 2px 8px rgba(10, 25, 47, 0.07);
+        }
     }
 
     nav ul {
         display: flex;
         list-style: none;
         align-items: center;
-        gap: 25px;
+        gap: 22px;
+        margin: 0;
 
-        li a {
-            text-decoration: none;
+        li {
+            position: relative;
+
+            a,
+            .login-btn,
+            .profile-btn {
+                text-decoration: none;
+                color: $navy-dark;
+                font-size: 1rem;
+                font-weight: 500;
+                background: none;
+                border: none;
+                padding: 8px 18px;
+                border-radius: 22px;
+                transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+                cursor: pointer;
+                outline: none;
+                display: flex;
+                align-items: center;
+
+                &.active,
+                &:hover {
+                    background: $navy-dark;
+                    color: $white;
+                    box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08);
+                }
+            }
+        }
+    }
+
+    .login-btn {
+        font-weight: 700;
+        background: linear-gradient(90deg, $navy-dark 60%, #233554 100%);
+        color: $white;
+        box-shadow: 0 2px 8px rgba(10, 25, 47, 0.08);
+        border: none;
+        padding: 8px 26px;
+        margin-left: 10px;
+        transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+
+        &:active {
+            transform: scale(0.97);
+        }
+    }
+
+    .profile-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: #f6f4e8;
+        color: $navy-dark;
+        border: 1.5px solid #e3eaf3;
+        font-weight: 600;
+        padding: 7px 18px 7px 10px;
+        border-radius: 22px;
+        position: relative;
+        transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+
+        &:hover {
+            background: $navy-dark;
+            color: $white;
+        }
+
+        .profile-icon {
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            margin-right: 0.2rem;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(10, 25, 47, 0.07);
+        }
+
+        .profile-arrow {
+            margin-left: 0.2rem;
+            font-size: 1rem;
+            transition: transform 0.2s;
+
+            &.open {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .profile-menu {
+        position: absolute;
+        right: 0;
+        top: 120%;
+        background: $white;
+        border-radius: 12px;
+        box-shadow: 0 8px 32px rgba(10, 25, 47, 0.13);
+        min-width: 160px;
+        padding: 0.5rem 0;
+        z-index: 100;
+        animation: fadeInMenu 0.22s cubic-bezier(.4, 2, .6, 1);
+        transform-origin: top right;
+
+        li {
+            padding: 10px 22px;
             color: $navy-dark;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
 
-            &.active {
-                background: $navy-dark;
-                color: $white;
-                padding: 8px 16px;
-                border-radius: 20px;
+            &:hover {
+                background: #f6f4e8;
+                color: $navy-dark;
             }
         }
     }
 }
+
 
 // Hero Section
 .hero {
@@ -65,17 +260,20 @@ body {
 
     .hero-content {
         max-width: 50%;
+
         h1 {
             font-size: 3.5rem;
             line-height: 1.1;
             margin-bottom: 20px;
         }
+
         p {
             font-size: 1.1rem;
             color: $text-muted;
             margin-bottom: 30px;
             line-height: 1.6;
         }
+
         .hero-btns {
             display: flex;
             gap: 15px;
@@ -86,15 +284,25 @@ body {
         background: $white;
         padding: 30px;
         border-radius: $border-radius;
-        border: 1px solid rgba(0,0,0,0.1);
+        border: 1px solid rgba(0, 0, 0, 0.1);
         width: 400px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 
-        h3 { margin-bottom: 20px; text-align: center; }
+        h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
         .input-group {
             margin-bottom: 15px;
-            label { display: block; font-size: 0.8rem; margin-bottom: 5px; font-weight: bold; }
+
+            label {
+                display: block;
+                font-size: 0.8rem;
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
             input {
                 width: 100%;
                 padding: 12px;
@@ -113,7 +321,10 @@ body {
             border-radius: 20px;
             margin-bottom: 20px;
             background: $bg-cream;
-            input { display: none; }
+
+            input {
+                display: none;
+            }
         }
     }
 }
@@ -154,10 +365,17 @@ body {
         color: $white;
         text-align: center;
         padding: 80px 5%;
-        
-        h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        p { opacity: 0.8; margin-bottom: 50px; }
-        
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            opacity: 0.8;
+            margin-bottom: 50px;
+        }
+
         .steps-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -170,10 +388,20 @@ body {
                 padding: 40px 20px;
                 border-radius: $border-radius;
                 text-align: left;
-                
-                .icon { font-size: 2rem; margin-bottom: 15px; }
-                h4 { margin-bottom: 10px; }
-                p { color: $text-muted; font-size: 0.9rem; }
+
+                .icon {
+                    font-size: 2rem;
+                    margin-bottom: 15px;
+                }
+
+                h4 {
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    color: $text-muted;
+                    font-size: 0.9rem;
+                }
             }
         }
     }
@@ -184,7 +412,10 @@ body {
     padding: 80px 5%;
     text-align: center;
 
-    h3 { margin-bottom: 40px; font-size: 1.8rem; }
+    h3 {
+        margin-bottom: 40px;
+        font-size: 1.8rem;
+    }
 
     .placement-grid {
         display: flex;
@@ -202,9 +433,21 @@ body {
             align-items: center;
             text-align: left;
 
-            h4 { font-size: 1rem; }
-            p { font-size: 0.8rem; color: $text-muted; }
-            a { text-decoration: none; font-size: 0.8rem; color: $navy-dark; font-weight: bold; }
+            h4 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.8rem;
+                color: $text-muted;
+            }
+
+            a {
+                text-decoration: none;
+                font-size: 0.8rem;
+                color: $navy-dark;
+                font-weight: bold;
+            }
         }
     }
 }
@@ -213,7 +456,26 @@ body {
 .footer-search {
     padding: 60px 5%;
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    h3 { margin-bottom: 10px; }
-    p { color: $text-muted; font-size: 0.9rem; }
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    h3 {
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
