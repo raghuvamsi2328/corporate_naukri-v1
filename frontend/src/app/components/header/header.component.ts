@@ -13,8 +13,13 @@ export class HeaderComponent {
   showProfileIcon = false;
   loading = false; // For animated button state
   activeSection = 'home';
+  isDarkMode = false;
 
   constructor(public router: Router) { // Make router public for template access
+    // Check for saved dark mode preference
+    const savedMode = localStorage.getItem('darkMode');
+    this.isDarkMode = savedMode === 'true';
+    this.applyDarkMode();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         const url = event.urlAfterRedirects;
@@ -97,5 +102,19 @@ export class HeaderComponent {
       this.loading = false;
       this.router.navigate(['/login']);
     }, 1200); // Simulate loading animation
+  }
+
+  toggleDarkMode() {
+    this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('darkMode', this.isDarkMode.toString());
+    this.applyDarkMode();
+  }
+
+  private applyDarkMode() {
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
   }
 }
